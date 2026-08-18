@@ -152,12 +152,11 @@ window.PORTFOLIO_DATA = {
   demo: "https://labscan-events.site/labbook/information.php",
   accent: "linear-gradient(135deg,#0ea5e9,#6366f1)",
   screenshots: [
-    "assets/projects/itso1.png",
-    "assets/projects/itso2.png",
-    "assets/projects/itso3.png",
-    "assets/projects/itso4.png",
-    "assets/projects/itso5.png",
-    "assets/projects/itso6.png",
+    "assets/projects/lab1.png",
+    "assets/projects/lab1.png",
+    "assets/projects/lab1.png",
+    "assets/projects/lab1.png",
+    "assets/projects/lab1.png",
 
   ],
 },,
