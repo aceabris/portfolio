@@ -259,6 +259,7 @@
         if (!card.contains(e.relatedTarget)) stop();
       });
     }
+  });
 
   // --------------------------------------------------------------- Skills
   var sg = document.getElementById("skill-grid");
