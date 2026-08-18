@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Albert F. Abris — Developer & Cisco-Certified Engineer</title>
+  <meta name="description" content="Premium portfolio showcasing Cisco Networking Academy badges, certifications, projects, and technical achievements." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Libraries -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    footer {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader" class="loader">
+    <div class="loader-ring"></div>
+    <p class="loader-text">Loading</p>
+  </div>
+
+  <!-- Navbar -->
+  <header id="navbar" class="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="brand"><span class="text-gradient">ace</span>.dev</a>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#certs">Certifications</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">☾</button>
+        <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-bg"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+
+      <div class="container hero-grid">
+        <div data-aos="fade-up">
+          <span class="pill"><span class="dot"></span> Available for new opportunities</span>
+          <h1 class="hero-title">Hi, I'm <span class="text-gradient">Albert</span>.</h1>
+          <p class="hero-typed"><span id="typed"></span><span class="caret"></span></p>
+          <p class="hero-tag" id="hero-tag"></p>
+
+          <div class="hero-ctas">
+            <a id="resume-btn" class="btn btn-primary" href="#" download>⬇ Download Resume</a>
+            <a class="btn btn-glass" href="#certs">🏅 View Certifications</a>
+          </div>
+
+          <div class="hero-socials" id="hero-socials"></div>
+        </div>
+
+        <div class="profile-wrap" data-aos="fade-left">
+          <div class="profile-glow"></div>
+          <div class="profile-card no-select" data-protected>
+            <div class="profile-img" id="profile-img"></div>
+            <div class="profile-ring"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container">
+        <div data-aos="fade-up" class="section-head">
+          <p class="eyebrow">01 — About</p>
+          <h2>A little about me.</h2>
+          <p class="lead" id="about-intro"></p>
+        </div>
+
+        <div class="grid-3">
+          <div class="glass card" data-aos="fade-up">
+            <div class="card-icon">🎓</div>
+            <h3>Education</h3>
+            <ul id="education-list" class="education"></ul>
+          </div>
+          <div class="glass card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-icon">🎯</div>
+            <h3>Career Goals</h3>
+            <p class="muted small" id="goals"></p>
+          </div>
+          <div class="glass card" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-icon">🛠</div>
+            <h3>Tech Stack</h3>
+            <div id="stack" class="chips"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certs" class="section">
+      <div class="container">
+        <div data-aos="fade-up" class="section-head">
+          <p class="eyebrow">02 — Achievements</p>
+          <h2>Certifications &amp; Badges</h2>
+          <p class="lead">Verified credentials from Cisco Networking Academy and other industry programs.</p>
+        </div>
+
+        <div class="cert-controls" data-aos="fade-up">
+          <div id="cert-filters" class="filters"></div>
+          <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input id="cert-search" type="text" placeholder="Search certifications..." />
+          </div>
+        </div>
+
+        <div id="cert-grid" class="grid-3 cert-grid"></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div data-aos="fade-up" class="section-head">
+          <p class="eyebrow">03 — Work</p>
+          <h2>Projects</h2>
+        </div>
+        <div id="project-grid" class="grid-2"></div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div data-aos="fade-up" class="section-head">
+          <p class="eyebrow">04 — Toolkit</p>
+          <h2>Skills</h2>
+        </div>
+        <div id="skill-grid" class="grid-3"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container narrow">
+        <div data-aos="fade-up" class="section-head center">
+          <p class="eyebrow">05 — Contact</p>
+          <h2>Let's build something.</h2>
+          <p class="lead">Have a project in mind, a role to fill, or just want to say hi?</p>
+        </div>
+
+        <form id="contact-form" class="glass form" data-aos="fade-up">
+          <div class="row-2">
+            <input required name="name" placeholder="Your name" />
+            <input required type="email" name="email" placeholder="Email address" />
+          </div>
+          <input name="subject" placeholder="Subject" />
+          <textarea required rows="5" name="message" placeholder="Tell me about your project..."></textarea>
+          <div class="form-actions">
+            <div id="contact-socials" class="socials"></div>
+            <button class="btn btn-primary" type="submit" id="submit-btn">Send message ➤</button>
+          </div>
+        </form>
+        <p class="copyright" id="copyright"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox modal -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-card glass" id="modal-card"></div>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Data + app -->
+  <script src="data/portfolio.js"></script>
+  <script src="js/protection.js"></script>
+  <script src="js/typed.js"></script>
+  <script src="js/app.js"></script>
+
+  <footer>
+        <p>&copy;  John Albert F. Abris - 2026 </p>
+    </footer>
+</body>
+</html>
