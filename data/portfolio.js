@@ -159,7 +159,7 @@ window.PORTFOLIO_DATA = {
     "assets/projects/lab5.png",
 
   ],
-},,
+},
     {
       title: "ITSO Events RFID Attendance & Fines Monitoring System",
       description: "An RFID based attendance and fines monitoring system for ITSO events.",
