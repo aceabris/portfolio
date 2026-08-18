@@ -173,7 +173,6 @@ window.PORTFOLIO_DATA = {
     "assets/projects/itso3.png",
     "assets/projects/itso4.png",
     "assets/projects/itso5.png",
-    "assets/projects/itso6.png",
   ],
     },
     /*{
