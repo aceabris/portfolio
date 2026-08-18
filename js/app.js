@@ -227,27 +227,36 @@
       '</div>';
     pg.appendChild(card);
 
-    // Auto-rotate screenshots
+        // Auto-rotate screenshots — only while hovered or focused
     if (hasShots && pr.screenshots.length > 1) {
       var slides = card.querySelectorAll(".thumb-slide");
       var dots = card.querySelectorAll(".thumb-dots span");
       var idx = 0;
-      var timer = setInterval(function () {
+      var timer = null;
+
+      function advance() {
         slides[idx].classList.remove("active");
         dots[idx].classList.remove("active");
         idx = (idx + 1) % slides.length;
         slides[idx].classList.add("active");
         dots[idx].classList.add("active");
-      }, 2200);
-      card.addEventListener("mouseenter", function () { clearInterval(timer); });
-      card.addEventListener("mouseleave", function () {
-        timer = setInterval(function () {
-          slides[idx].classList.remove("active");
-          dots[idx].classList.remove("active");
-          idx = (idx + 1) % slides.length;
-          slides[idx].classList.add("active");
-          dots[idx].classList.add("active");
-        }, 2200);
+      }
+
+      function start() {
+        if (timer) return;
+        timer = setInterval(advance, 1800);
+      }
+      function stop() {
+        clearInterval(timer);
+        timer = null;
+      }
+
+      card.addEventListener("mouseenter", start);
+      card.addEventListener("mouseleave", stop);
+      card.addEventListener("focusin", start);
+      card.addEventListener("focusout", function (e) {
+        // only stop if focus actually left the card (not moved to a link inside it)
+        if (!card.contains(e.relatedTarget)) stop();
       });
     }
   });
