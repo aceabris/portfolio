@@ -202,23 +202,20 @@ window.PORTFOLIO_DATA = {
         { name: "Cisco IOS",             level: 90 },
         { name: "Routing & Switching",   level: 88 },
         { name: "Network Security",      level: 82 },
-        { name: "Wireshark",             level: 85 },
       ],
     },
     {
       name: "Web Development",
       items: [
-        { name: "JavaScript / ES6+",     level: 93 },
-        { name: "HTML / CSS",            level: 95 },
-        { name: "Node.js",               level: 85 },
-        { name: "React",                 level: 88 },
+        { name: "JavaScript",     level: 72 },
+        { name: "HTML / CSS",            level: 90 },
       ],
     },
     {
       name: "Programming",
       items: [
-        { name: "C++",                level: 86 },
-        { name: "Java",                  level: 78 },
+        { name: "C++",                level: 83 },
+        { name: "Java",                  level: 75 },
         { name: "PHP",                    level: 91 },
         { name: "SQL",                   level: 89 },
       ],
