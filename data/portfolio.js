@@ -153,10 +153,10 @@ window.PORTFOLIO_DATA = {
   accent: "linear-gradient(135deg,#0ea5e9,#6366f1)",
   screenshots: [
     "assets/projects/lab1.png",
-    "assets/projects/lab1.png",
-    "assets/projects/lab1.png",
-    "assets/projects/lab1.png",
-    "assets/projects/lab1.png",
+    "assets/projects/lab2.png",
+    "assets/projects/lab3.png",
+    "assets/projects/lab4.png",
+    "assets/projects/lab5.png",
 
   ],
 },,
