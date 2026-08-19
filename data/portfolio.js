@@ -27,8 +27,8 @@ window.PORTFOLIO_DATA = {
 
   about: {
     intro:
-      "I'm a developer and network engineer with a passion for designing reliable infrastructure and shipping polished web products. I've spent the last four years bridging the gap between hardware-level networking and modern web stacks.",
-    education: [
+     "I’m a Network & Full-Stack Developer passionate about building reliable infrastructure and practical web systems. I work across networking, backend development, databases, and modern web technologies, turning real-world requirements into functional, secure, and scalable solutions.",
+education: [
       { school: "Eastern Samar State University - Guiuan Campus", program: "BS Information Technology", year: "2024 - Present" },
       
     ],
