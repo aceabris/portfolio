@@ -197,25 +197,31 @@ education: [
     {
       name: "Networking",
       items: [
-        { name: "Cisco IOS",             level: 90 },
         { name: "Routing & Switching",   level: 88 },
         { name: "Network Security",      level: 82 },
       ],
     },
     {
-      name: "Web Development",
+      name: "Front-end Development",
       items: [
         { name: "JavaScript",     level: 72 },
-        { name: "HTML / CSS",            level: 90 },
+        { name: "HTML",            level: 90 },
+         { name: "CSS",            level: 87 },
+      ],
+    },
+    {
+      name: "Back-end Development,
+      items: [
+        { name: "PHP",     level: 89 },
+        { name: "SQL",                   level: 86 },
       ],
     },
     {
       name: "Programming",
       items: [
-        { name: "C++",                level: 83 },
+        { name: "C++",                level: 85 },
+        { name: "C#                level: 81 },
         { name: "Java",                  level: 75 },
-        { name: "PHP",                    level: 91 },
-        { name: "SQL",                   level: 89 },
       ],
     },
   ],
