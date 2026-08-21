@@ -210,17 +210,17 @@ education: [
       ],
     },
     {
-      name: "Back-end Development,
+      name: "Back-end Development",
       items: [
         { name: "PHP",     level: 89 },
-        { name: "SQL",                   level: 86 },
+        { name: "SQL",     level: 86 },
       ],
     },
     {
       name: "Programming",
       items: [
         { name: "C++",                level: 85 },
-        { name: "C#                level: 81 },
+        { name: "C#",              level: 81 },
         { name: "Java",                  level: 75 },
       ],
     },
