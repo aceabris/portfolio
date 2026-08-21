@@ -212,7 +212,7 @@ img { max-width: 100%; display: block; }
 /* Image displayed as CSS background to deter direct saving */
 .profile-img {
   width: 100%; height: 100%;
-  background-image: url('../assets/profile.jpg');
+  background-image: url('../assets/profile.png');
   background-size: cover; background-position: center;
   filter: blur(2px); transition: filter .35s ease;
 }
