@@ -175,6 +175,22 @@ education: [
     "assets/projects/itso5.png",
   ],
     },
+
+    {
+      title: "Boarding House Management System - BHMS",
+      description: "A management system for boarding house owners to efficiently record and update tenants with printable generated invoices and receipts",
+      tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+      github: "https://github.com/",
+      demo: "https://lexample.php",
+      accent: "linear-gradient(135deg,#22d3ee,#0f766e)",
+      screenshots: [
+    "assets/projects/bhms1.png",
+    "assets/projects/bhms2.png",
+    "assets/projects/bhms3.png",
+    "assets/projects/bhms4.png",
+    "assets/projects/bhms5.png",
+  ],
+    },
     /*{
       title: "VaultPass",
       description: "Zero-knowledge password manager with end-to-end encryption.",
