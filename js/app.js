@@ -315,5 +315,5 @@
   });
 
   document.getElementById("copyright").textContent =
-    "© " + new Date().getFullYear() + " " + p.name + ".;
+    "© " + new Date().getFullYear() + " " + p.name + ".";
 })();
