@@ -27,8 +27,7 @@ window.PORTFOLIO_DATA = {
 
   about: {
     intro:
-     "I’m a Network & Full-Stack Developer who enjoys turning real-world problems into practical systems. I work across networking, backend development, databases, and web applications, while continuously developing my skills in cybersecurity and system security.
-",
+     "I’m a Network & Full-Stack Developer who enjoys turning real-world problems into practical systems. I work across networking, backend development, databases, and web applications, while continuously developing my skills in cybersecurity and system security.",
 education: [
       { school: "Eastern Samar State University - Guiuan Campus", program: "BS Information Technology", year: "2024 - Present" },
       
