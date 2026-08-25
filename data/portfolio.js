@@ -27,7 +27,7 @@ window.PORTFOLIO_DATA = {
 
   about: {
     intro:
-     "I’m a Network & Full-Stack Developer who enjoys turning real-world problems into practical systems. I work across networking, backend development, databases, and web applications, while continuously developing my skills in cybersecurity and system security.",
+     "I’m a Full-Stack Developer who enjoys turning real-world problems into practical systems. I work across networking, backend development, databases, and web applications, while continuously developing my skills in cybersecurity and system security.",
 education: [
       { school: "Eastern Samar State University - Guiuan Campus", program: "BS Information Technology", year: "2024 - Present" },
       
@@ -38,7 +38,7 @@ education: [
   },
 
   // categories used by filters
-  categories: ["All", "Networking", "Web Development", "Cybersecurity", "Programming"],
+  categories: ["All", "Networking", "Hardware", "Cybersecurity", "Data Analytics"],
 
   certifications: [
     {
@@ -59,7 +59,7 @@ education: [
       title: "Cyber Threat Management",
       issuer: "Cisco Networking Academy",
       date: "May 29, 2026",
-      category: "Security",
+      category: "Cybersecurity",
       description: "Skills in monitoring, detecting and responding to cybersecurity threats in a security operations center.",
       verifyUrl: "https://www.credly.com/badges/e68d2fc9-40ee-4e05-b3c8-89dd0510d142",
       image: "assets/certifications/CTM.png",
@@ -86,7 +86,7 @@ education: [
       issuer: "Cisco Networking Academy",
       date: "Aug 16, 2026",
       category: "Data Analytics",
-      description: "Broad understanding how the data analytics process creates value from data, can explain characteristics of data, including formats, availability and methods to acquire, can transform data and analyze data using basic statistical and data preparation techniques.",
+      description: "Foundational understanding of how data analytics creates value from data, including data characteristics, acquisition, preparation, transformation, and basic statistical analysis.",
       verifyUrl: "https://www.credly.com/badges/4d08237e-b3ef-4784-929d-6636c7066abb",
       image: "assets/certifications/DAE.png",
       accent: "linear-gradient(135deg,#a855f7,#ec4899)",
