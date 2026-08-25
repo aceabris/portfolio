@@ -16,7 +16,7 @@ window.PORTFOLIO_DATA = {
     tagline:
       "Building secure networks and elegant web experiences. Cisco-certified, code-driven, and obsessed with the details.",
     email: "aceabris00@gmail.com",
-    resumeUrl: "assets/resume.pdf", // drop your resume PDF in /assets
+    resumeUrl: "assets/resume.pdf",
     socials: {
       github:   "https://github.com/aceabris",
       linkedin: "https://linkedin.com/",
@@ -42,7 +42,7 @@ education: [
 
   certifications: [
     {
-      id: "ccna",
+      id: "nabt",
       title: "Network Addressing and Basic Troubleshooting",
       issuer: "Cisco Networking Academy",
       date: "May 24, 2026",
@@ -55,7 +55,7 @@ education: [
       icon: "🛰",
     },
     {
-      id: "ccna",
+      id: "ctm",
       title: "Cyber Threat Management",
       issuer: "Cisco Networking Academy",
       date: "May 29, 2026",
@@ -68,7 +68,7 @@ education: [
       icon: "🛡",
     },
     {
-      id: "ccna",
+      id: "hus",
       title: "Hardware and Upgrade Support",
       issuer: "Cisco Networking Academy",
       date: "June 16, 2026",
@@ -81,7 +81,7 @@ education: [
       icon: "🔗",
     },
     {
-      id: "ccna",
+      id: "dae",
       title: "Data Analytics Essentials",
       issuer: "Cisco Networking Academy",
       date: "Aug 16, 2026",
