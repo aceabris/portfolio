@@ -148,7 +148,6 @@ education: [
   title: "RFID Based Computer Laboratory E-Logbook System",
   description: "An RFID based e-logbook system for computer labs, allowing students to log their activities and hours using RFID cards.",
   tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-  github: "https://github.com/",
   demo: "https://labscan-events.site/labbook/information.php",
   accent: "linear-gradient(135deg,#0ea5e9,#6366f1)",
   screenshots: [
@@ -164,7 +163,6 @@ education: [
       title: "ITSO Events RFID Attendance & Fines Monitoring System",
       description: "An RFID based attendance and fines monitoring system for ITSO events.",
       tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-      github: "https://github.com/",
       demo: "https://labscan-events.site/itso-events/scanner.php",
       accent: "linear-gradient(135deg,#22d3ee,#0f766e)",
       screenshots: [
@@ -178,9 +176,8 @@ education: [
 
     {
       title: "Boarding House Management System - BHMS",
-      description: "A management system for boarding house owners to efficiently record and update tenants with printable generated invoices and receipts",
+      description: "A management system for boarding house owners to efficiently record and update tenants with printable generated invoices and receipts.",
       tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-      github: "https://github.com/",
       demo: "https://lexample.php",
       accent: "linear-gradient(135deg,#22d3ee,#0f766e)",
       screenshots: [
@@ -191,22 +188,23 @@ education: [
     "assets/projects/bhms5.png",
   ],
     },
-    /*{
-      title: "VaultPass",
-      description: "Zero-knowledge password manager with end-to-end encryption.",
-      tech: ["JavaScript", "WebCrypto", "AES-GCM"],
-      github: "https://github.com/",
-      demo: "#",
-      accent: "linear-gradient(135deg,#a855f7,#ec4899)",
-    },
     {
-      title: "Lab Topology Builder",
-      description: "Drag-and-drop network topology designer that exports to Packet Tracer.",
-      tech: ["JavaScript", "Canvas", "HTML5"],
-      github: "https://github.com/",
-      demo: "#",
-      accent: "linear-gradient(135deg,#f97316,#facc15)",
-    }, */
+      title: "Servelink Contracting Solutions - Payroll System",
+      description: "A web-based payroll management system that automates employee records, attendance, salary computation, payroll processing, and payslip generation.",
+      tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+      demo: "https://lexample.php",
+      accent: "linear-gradient(135deg,#22d3ee,#0f766e)",
+      screenshots: [
+    "assets/projects/serv8.png",
+    "assets/projects/serv1.png",
+    "assets/projects/serv2.png",
+    "assets/projects/serv3.png",
+    "assets/projects/serv4.png",
+    "assets/projects/serv5.png",
+    "assets/projects/serv6.png",
+    "assets/projects/serv7.png",
+  ],
+    },
   ],
 
   skills: [
