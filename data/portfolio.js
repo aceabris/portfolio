@@ -14,7 +14,7 @@ window.PORTFOLIO_DATA = {
       "Lifelong Learner",
     ],
     tagline:
-      "Building secure networks and elegant web experiences. Cisco-certified, code-driven, and obsessed with the details.",
+      "Connecting networks, code, and systems to build practical and secure solutions. Cisco-certified, full-stack, and security-minded.",
     email: "aceabris00@gmail.com",
     resumeUrl: "assets/resume.pdf",
     socials: {
@@ -27,7 +27,8 @@ window.PORTFOLIO_DATA = {
 
   about: {
     intro:
-     "I’m a Network & Full-Stack Developer passionate about building reliable infrastructure and practical web systems. I work across networking, backend development, databases, and modern web technologies, turning real-world requirements into functional, secure, and scalable solutions.",
+     "I’m a Network & Full-Stack Developer who enjoys turning real-world problems into practical systems. I work across networking, backend development, databases, and web applications, while continuously developing my skills in cybersecurity and system security.
+",
 education: [
       { school: "Eastern Samar State University - Guiuan Campus", program: "BS Information Technology", year: "2024 - Present" },
       
