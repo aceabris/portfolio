@@ -6,10 +6,10 @@
 window.PORTFOLIO_DATA = {
   profile: {
     name: "John Albert F. Abris",
-    role: "Network & Full-Stack Developer",
+    role: "Full-Stack Web Developer",
     typedRoles: [
       "Cisco Certified",
-      "Full-Stack Web Developer",
+      "Security-Focused Web Developer",
       "Cybersecurity Enthusiast",
       "Lifelong Learner",
     ],
