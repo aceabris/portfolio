@@ -189,7 +189,7 @@ education: [
   ],
     },
     {
-      title: "Servelink Contracting Solutions - Payroll System",
+      title: "Servelink Job Contracting Solutions - Payroll System",
       description: "A web-based payroll management system that automates employee records, attendance, salary computation, payroll processing, and payslip generation.",
       tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
       demo: "https://lexample.php",
