@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Typing Prize Wheel</title>
+<style>
+  :root{--bg:#0f1117;--card:#181b24;--line:#2a2f3d;--text:#e6e8ee;--mute:#8b91a3;--accent:#e2b714}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Segoe UI,Roboto,sans-serif;padding:20px}
+  .wrap{max-width:980px;margin:auto;display:grid;grid-template-columns:340px 1fr;gap:20px}
+  @media(max-width:820px){.wrap{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+  h1{font-size:20px;margin:0 0 16px;color:var(--accent)}
+  h2{font-size:13px;margin:0 0 10px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em}
+  label{display:block;font-size:12px;color:var(--mute);margin:8px 0 4px}
+  input,select,textarea{width:100%;background:#0f1117;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:9px;font:inherit}
+  textarea{height:70px;resize:vertical;font-size:13px}
+  .row{display:flex;gap:8px}
+  button{background:var(--accent);color:#111;border:0;border-radius:8px;padding:10px 14px;font-weight:700;cursor:pointer;font:inherit;font-weight:700}
+  button.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+  button:disabled{opacity:.4;cursor:not-allowed}
+  .status{font-size:12px;color:var(--mute);margin-top:8px;min-height:16px}
+  .badge{display:inline-block;padding:4px 10px;border-radius:99px;font-weight:700;font-size:13px}
+  .Bronze{background:#cd7f32;color:#111}.Silver{background:#c0c4cc;color:#111}.Gold{background:#e2b714;color:#111}.None{background:#3a3f4f;color:var(--text)}
+  .stage{display:flex;flex-direction:column;align-items:center}
+  .wheelbox{position:relative;width:min(460px,100%)}
+  canvas{width:100%;height:auto;display:block}
+  .pointer{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-top:28px solid #fff;filter:drop-shadow(0 2px 3px #000)}
+  .result{margin-top:16px;font-size:22px;font-weight:800;text-align:center;min-height:34px}
+  #recent{margin-top:8px;max-height:210px;overflow-y:auto}
+  .rr{display:flex;justify-content:space-between;gap:8px;width:100%;background:#0f1117;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:13px;font-weight:500;text-align:left}
+  .rr:hover{border-color:var(--accent)}
+  .rr.sel{border-color:var(--accent);background:#221f10}
+  .rr small{color:var(--mute)}
+  .meta{display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div>
+    <h1>⌨️ Typing Prize Wheel</h1>
+
+    <div class="card">
+      <h2>1 · Get your result</h2>
+      <label>Monkeytype ApeKey</label>
+      <input id="apekey" type="password" placeholder="Settings → Ape Keys → Generate new key" autocomplete="off">
+      <div class="status">Create the key with "Active" on. It stays in this page only and is never saved.</div>
+      <button id="watchBtn" style="margin-top:8px;width:100%">▶ Start watching for my test</button>
+      <label style="display:flex;gap:8px;align-items:center;margin-top:10px;font-size:13px;color:var(--text)"><input type="checkbox" id="auto" style="width:auto"> Auto-spin when a result arrives</label>
+      <div class="status" id="fetchStatus"></div>
+      <a href="https://monkeytype.com" target="_blank" rel="noopener" style="color:var(--accent);font-size:13px">Open Monkeytype ↗</a>
+
+      <label>WPM</label><input id="wpm" type="number" min="0" placeholder="0">
+      <label>Accuracy %</label><input id="acc" type="number" min="0" max="100" placeholder="0">
+      <button id="applyBtn" class="ghost" style="margin-top:10px;width:100%">Use these numbers</button>
+    </div>
+
+    <div class="card">
+      <h2>2 · Prize pools (one per line)</h2>
+      <label>Gold · 95+ WPM</label><textarea id="pGold"></textarea>
+      <label>Silver · 85–94 WPM</label><textarea id="pSilver"></textarea>
+      <label>Bronze · 75–84 WPM</label><textarea id="pBronze"></textarea>
+      <div class="status">Rules: 93%+ accuracy and 75+ WPM to qualify. One spin per result.</div>
+    </div>
+  </div>
+
+  <div class="card stage">
+    <div class="meta">
+      <span>Tier: <span class="badge None" id="tier">—</span></span>
+      <span>Spins left: <b id="spins">0</b></span>
+    </div>
+    <div class="wheelbox"><div class="pointer"></div><canvas id="wheel" width="600" height="600"></canvas></div>
+    <button id="spinBtn" style="margin-top:16px;min-width:160px" disabled>SPIN</button>
+    <div class="result" id="result"></div>
+  </div>
+</div>
+
+<script>
+const COLORS=['#e2b714','#4f8cff','#ff6b6b','#34c38f','#a06bff','#ff9f43','#2ec4d6','#f368a8'];
+const defaults={
+  Gold:"Gadget voucher\nCash prize\nMechanical keyboard\nMystery box",
+  Silver:"Snack pack\nLoad voucher\nMilk tea\nStickers\nTry again",
+  Bronze:"Candy\nSticker\nPen\nTry again"
+};
+const $=id=>document.getElementById(id);
+for(const k in defaults) $('p'+k).value=defaults[k];
+
+let tier=null,spins=0,rot=0,spinning=false,prizes=[];
+const cv=$('wheel'),ctx=cv.getContext('2d');
+
+function getPrizes(t){
+  const list=$('p'+t).value.split('\n').map(s=>s.trim()).filter(Boolean);
+  return list.length?list:['—'];
+}
+
+function draw(){
+  const W=cv.width,c=W/2,r=c-10,n=prizes.length,a=2*Math.PI/n;
+  ctx.clearRect(0,0,W,W);
+  if(!n){ctx.fillStyle='#2a2f3d';ctx.beginPath();ctx.arc(c,c,r,0,7);ctx.fill();
+    ctx.fillStyle='#8b91a3';ctx.font='bold 26px system-ui';ctx.textAlign='center';ctx.fillText('Enter your result',c,c);return}
+  for(let i=0;i<n;i++){
+    const s=rot+i*a;
+    ctx.beginPath();ctx.moveTo(c,c);ctx.arc(c,c,r,s,s+a);ctx.closePath();
+    ctx.fillStyle=COLORS[i%COLORS.length];ctx.fill();
+    ctx.strokeStyle='#0f1117';ctx.lineWidth=3;ctx.stroke();
+    ctx.save();ctx.translate(c,c);ctx.rotate(s+a/2);
+    ctx.fillStyle='#111';ctx.font='bold 26px system-ui';ctx.textAlign='right';ctx.textBaseline='middle';
+    let t=prizes[i];if(t.length>16)t=t.slice(0,15)+'…';
+    ctx.fillText(t,r-22,0);ctx.restore();
+  }
+  ctx.beginPath();ctx.arc(c,c,34,0,7);ctx.fillStyle='#0f1117';ctx.fill();
+  ctx.strokeStyle='#e2b714';ctx.lineWidth=4;ctx.stroke();
+}
+
+function apply(){
+  const wpm=parseFloat($('wpm').value),acc=parseFloat($('acc').value);
+  if(isNaN(wpm)||isNaN(acc)){$('fetchStatus').textContent='Enter both WPM and accuracy.';return}
+  if(acc<93){tier=null;spins=0;prizes=[];setTier('None','No spin (accuracy under 93%)')}
+  else if(wpm<75){tier=null;spins=0;prizes=[];setTier('None','No spin (under 75 WPM)')}
+  else{
+    tier=wpm>=95?'Gold':wpm>=85?'Silver':'Bronze';
+    spins=1;
+    prizes=getPrizes(tier);
+    setTier(tier,tier);
+  }
+  $('spins').textContent=spins;$('result').textContent='';
+  $('spinBtn').disabled=spins<1;
+  rot=0;draw();
+}
+function setTier(cls,text){const t=$('tier');t.className='badge '+cls;t.textContent=text}
+
+function spin(){
+  if(spinning||spins<1)return;
+  spinning=true;spins--;$('spins').textContent=spins;
+  $('spinBtn').disabled=true;$('result').textContent='';
+  const n=prizes.length,a=2*Math.PI/n,idx=Math.floor(Math.random()*n);
+  const jitter=(Math.random()-.5)*a*.7;
+  const base=-Math.PI/2-(idx+.5)*a-jitter;
+  const TAU=2*Math.PI;
+  const final=base+TAU*(Math.ceil((rot-base)/TAU)+6);
+  const start=rot,t0=performance.now(),dur=5000;
+  (function step(now){
+    const p=Math.min((now-t0)/dur,1),e=1-Math.pow(1-p,4);
+    rot=start+(final-start)*e;draw();
+    if(p<1)requestAnimationFrame(step);
+    else{spinning=false;$('result').textContent='🎉 '+prizes[idx];$('spinBtn').disabled=spins<1}
+  })(t0);
+}
+
+let watching=false,timer=null,baseline=0;
+async function latest(key){
+  const res=await fetch('https://api.monkeytype.com/results?limit=1',{headers:{'Authorization':'ApeKey '+key}});
+  const j=await res.json();
+  if(!res.ok)throw new Error(j.message||res.status);
+  return (j.data&&j.data[0])||null;
+}
+async function poll(){
+  const st=$('fetchStatus');
+  try{
+    const r=await latest($('apekey').value.trim());
+    if(r&&r.timestamp>baseline&&!spinning){
+      baseline=r.timestamp;
+      $('wpm').value=Math.round(r.wpm);$('acc').value=Math.round(r.acc);
+      apply();
+      st.textContent='New result: '+Math.round(r.wpm)+' WPM · '+Math.round(r.acc)+'% ('+r.mode+' '+r.mode2+'). Watching for the next test…';
+      if($('auto').checked&&spins>0)setTimeout(spin,600);
+    }
+  }catch(e){st.textContent='Watch error: '+e.message+'. Retrying…'}
+}
+async function toggleWatch(){
+  const btn=$('watchBtn'),st=$('fetchStatus');
+  if(watching){clearInterval(timer);watching=false;btn.textContent='▶ Start watching for my test';st.textContent='Stopped.';return}
+  const key=$('apekey').value.trim();
+  if(!key){st.textContent='Paste your ApeKey first.';return}
+  try{const r=await latest(key);baseline=r?r.timestamp:0}
+  catch(e){st.textContent='Could not connect ('+e.message+'). Check your key, or enter numbers manually.';return}
+  watching=true;btn.textContent='⏹ Stop watching';
+  st.textContent='Watching… take your test on Monkeytype now.';
+  timer=setInterval(poll,5000);
+}
+$('watchBtn').onclick=toggleWatch;
+$('applyBtn').onclick=apply;
+$('spinBtn').onclick=spin;
+['pGold','pSilver','pBronze'].forEach(id=>$(id).addEventListener('input',()=>{
+  if(tier&&!spinning){prizes=getPrizes(tier);draw()}}));
+draw();
+</script>
+</body>
+</html>
